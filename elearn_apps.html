@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teacher Apps & Websites Library</title>
+
+  <style>
+    :root{
+      /* Theme: Blue, Gold, White */
+      --blue-dark: #0b2c4d;
+      --blue-main: #1f5fa8;
+      --blue-hover: #174d89;
+      --blue-light: #e8f0fb;
+
+      --gold-main: #d4af37;
+      --gold-soft: #f3e7b3;
+
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --border: #d9e2ef;
+      --text: #0b2c4d;
+      --muted: #5f6f86;
+
+      --radius: 16px;
+      --shadow: 0 10px 24px rgba(0,0,0,0.08);
+      --focus: rgba(31, 95, 168, 0.25);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height: 100%; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 500px at 10% 0%, #eaf1ff, transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, #fff7dc, transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a{ color: var(--blue-main); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width:1100px;
+      margin:auto;
+      padding:28px 18px 48px;
+    }
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+
+    .headerLeft{ min-width: 260px; }
+
+    h1{
+      margin:0 0 6px 0;
+      font-size:26px;
+      color: var(--blue-dark);
+    }
+
+    .subtitle{
+      margin:0;
+      max-width:72ch;
+      color: var(--muted);
+      font-size:14px;
+      line-height: 1.4;
+    }
+
+    .headerRight{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top: 2px;
+    }
+
+    .pill{
+      padding:6px 12px;
+      border-radius:999px;
+      background: var(--blue-light);
+      border:1px solid var(--border);
+      color:var(--blue-dark);
+      font-size:12px;
+      white-space: nowrap;
+    }
+
+    .btnGold{
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--gold-main);
+      background: linear-gradient(180deg, var(--gold-soft), var(--gold-main));
+      color:#3a2d00;
+      font-weight:700;
+      cursor:pointer;
+      white-space: nowrap;
+    }
+    .btnGold:hover{ filter: brightness(1.04); }
+    .btnGold:active{ transform: translateY(1px); }
+
+    .panel{
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    input[type="search"], input[type="text"], textarea, select{
+      width:100%;
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+    }
+
+    textarea{
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus, select:focus{
+      outline:none;
+      border-color: var(--blue-main);
+      box-shadow:0 0 0 4px var(--focus);
+    }
+
+    .controls{
+      display:grid;
+      grid-template-columns: 1.2fr 0.6fr 0.6fr auto;
+      gap:10px;
+    }
+
+    @media (max-width:860px){
+      .controls{ grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:520px){
+      .controls{ grid-template-columns:1fr; }
+    }
+
+    .btnBlue{
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid var(--blue-main);
+      background: var(--blue-main);
+      color:white;
+      font-weight:650;
+      cursor:pointer;
+      width: 100%;
+    }
+    .btnBlue:hover{ background: var(--blue-hover); }
+    .btnBlue:active{ transform: translateY(1px); }
+
+    .btnGhost{
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      color: var(--blue-dark);
+      font-weight:650;
+      cursor:pointer;
+      width: 100%;
+    }
+    .btnGhost:hover{ background:#f2f5fb; }
+
+    .metaRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+
+    @media (max-width:960px){
+      .grid{ grid-template-columns:repeat(2, 1fr); }
+    }
+    @media (max-width:620px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:14px;
+      box-shadow: var(--shadow);
+      display:grid;
+      gap:10px;
+      overflow:hidden;
+    }
+
+    .cardTop{
+      display:grid;
+      grid-template-columns: 72px 1fr;
+      gap:12px;
+      align-items:start;
+    }
+
+    .thumb{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff, #f2f6ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      flex-shrink: 0;
+    }
+
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .thumbFallback{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color: var(--blue-dark);
+      background: radial-gradient(circle at 30% 20%, #ffffff, #eaf1ff);
+    }
+
+    .name{
+      margin:0;
+      font-size:16px;
+      font-weight:750;
+      color:var(--blue-dark);
+      line-height: 1.2;
+    }
+
+    .desc{
+      margin:6px 0 0 0;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      padding:6px 10px;
+      font-size:12px;
+      border-radius:999px;
+      background: var(--blue-light);
+      border:1px solid var(--border);
+      color:var(--blue-dark);
+    }
+
+    .chip.gold{
+      background: linear-gradient(180deg, var(--gold-soft), #f7f1d4);
+      border-color: var(--gold-main);
+      color:#3a2d00;
+      font-weight:650;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .linkBtn{
+      padding:9px 12px;
+      border-radius:12px;
+      border:1px solid var(--blue-main);
+      background: var(--blue-main);
+      color:white;
+      font-size:13px;
+      font-weight:650;
+      white-space: nowrap;
+    }
+    .linkBtn:hover{ background: var(--blue-hover); text-decoration:none; }
+
+    .downloadBtn{
+      padding:9px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:#fff;
+      color: var(--blue-dark);
+      font-size:13px;
+      font-weight:650;
+      white-space: nowrap;
+      cursor:pointer;
+    }
+    .downloadBtn:hover{ background:#f2f5fb; }
+
+    .small{
+      font-size:12px;
+      color:var(--muted);
+      word-break: break-word;
+    }
+
+    .empty{
+      margin-top:18px;
+      padding:20px;
+      border-radius:var(--radius);
+      border:2px dashed var(--border);
+      text-align:center;
+      color:var(--muted);
+      background: rgba(255,255,255,0.55);
+    }
+
+    footer{
+      margin-top:18px;
+      font-size:12px;
+      color:var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Modal */
+    .modalOverlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 44, 77, 0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 9999;
+    }
+
+    .modal{
+      width: min(720px, 100%);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+
+    .modalHeader{
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background:
+        radial-gradient(800px 200px at 10% 0%, #eaf1ff, transparent 60%),
+        radial-gradient(700px 220px at 90% 0%, #fff7dc, transparent 60%),
+        #fff;
+    }
+
+    .modalTitle{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--blue-dark);
+    }
+
+    .modalBody{
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .formGrid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width: 680px){
+      .formGrid{ grid-template-columns: 1fr; }
+    }
+
+    .modalFooter{
+      padding: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      background: #fff;
+    }
+
+    .helper{
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-top: 6px;
+    }
+
+    .inlineNote{
+      background: var(--blue-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 12px;
+      color: var(--blue-dark);
+      line-height: 1.45;
+    }
+
+    .xBtn{
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--blue-dark);
+    }
+    .xBtn:hover{ background: #f2f5fb; }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="headerLeft">
+      <h1>Teacher Apps & Websites</h1>
+      <p class="subtitle">
+        Search by name, app type, and subject area. Links can be external or local files in <b>assets</b>.
+        Optional thumbnails can be added in <b>tumb</b> (named the same as the app).
+      </p>
+    </div>
+    <div class="headerRight">
+      <span class="pill" id="countPill">0 tools</span>
+      <button class="btnGold" id="addNewBtn" type="button">Add New</button>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="controls">
+      <div>
+        <label for="q">Search (name + description)</label>
+        <input id="q" type="search" placeholder="quiz, typing, map…" autocomplete="off" />
+      </div>
+      <div>
+        <label for="typeFilter">Type</label>
+        <select id="typeFilter"></select>
+      </div>
+      <div>
+        <label for="subjectFilter">Subject</label>
+        <select id="subjectFilter"></select>
+      </div>
+      <div>
+        <label>&nbsp;</label>
+        <button class="btnGhost" id="clearBtn" type="button">Clear</button>
+      </div>
+    </div>
+
+    <div class="metaRow">
+      <span id="resultMeta">Showing 0</span>
+      <span class="pill">Thumbnails: <code>tumb/Kahoot.png</code> (png/jpg/jpeg/webp/svg)</span>
+    </div>
+  </section>
+
+  <section class="grid" id="grid"></section>
+  <div class="empty" id="empty" style="display:none;">No matching tools found.</div>
+
+  <footer>
+    <div><b>Local file notes:</b> Put local tools inside <code>assets</code> next to this HTML file.</div>
+    <div><b>Thumbnail notes:</b> Create a <code>tumb</code> folder next to this HTML file. Name the image exactly like the app name.</div>
+    <div class="helper">
+      <b>Download button:</b> If a tool is a local file (<code>assets/…</code>) or a network file (<code>file://…</code>), a “Download” button appears so staff can save a copy for home use.
+      Whether download works depends on browser security and whether the file is reachable from the current device.
+    </div>
+  </footer>
+</div>
+
+<!-- Modal -->
+<div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modalHeader">
+      <p class="modalTitle" id="modalTitle">Add a new app / website</p>
+      <button class="xBtn" id="closeModalBtn" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modalBody">
+      <div class="inlineNote">
+        Thumbnails: place in <b>tumb/</b> named exactly like the app. Example: <code>tumb/My App.png</code>
+      </div>
+
+      <div class="formGrid">
+        <div>
+          <label for="newName">App / website name</label>
+          <input id="newName" type="text" placeholder="e.g. Desmos" />
+        </div>
+
+        <div>
+          <label for="newType">Type of app</label>
+          <input id="newType" type="text" placeholder="e.g. Maths / Graphing" />
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <label for="newDesc">Description</label>
+          <textarea id="newDesc" placeholder="Short description for teachers…"></textarea>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <label for="newLink">Link (external URL, assets file, or network file)</label>
+          <input id="newLink" type="text" placeholder="https://…  |  assets/MyFile.html  |  file:///…  |  \\\\server\\share\\file.pdf" />
+          <div class="helper">
+            If you want a downloadable local copy, use a direct file link (example: <code>assets/Handout.pdf</code>).
+          </div>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <label for="newSubjects">Subjects (comma separated)</label>
+          <input id="newSubjects" type="text" placeholder="English, HASS, Science" />
+          <div class="helper">Use “All” if it fits across most subjects.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modalFooter">
+      <button class="btnGhost" id="cancelBtn" type="button" style="width:auto;">Cancel</button>
+      <button class="btnBlue" id="saveBtn" type="button" style="width:auto;">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  /***********************
+   * Base data (yours)
+   ***********************/
+  const baseTools = [
+    { name: "Kahoot", description: "Quiz tool to engage students.", link: "https://play.kahoot.it/v2/", type: "Quiz", subjects: ["All"] },
+    { name: "Blooket", description: "Quiz to engage students.", link: "https://www.blooket.com/", type: "Quiz", subjects: ["All"] },
+    { name: "Educaplay", description: "Educational game generator (create interactive activities).", link: "https://www.educaplay.com/", type: "Games / Activity builder", subjects: ["All"] },
+    { name: "Quizizz", description: "Quiz tool including flashcards and self-paced modes.", link: "https://quizizz.com/", type: "Quiz / Flashcards", subjects: ["All"] },
+    { name: "Quizlet", description: "Online flashcards and study sets. Login needed for many online activities, but sets can be printed.", link: "https://quizlet.com/", type: "Flashcards / Study", subjects: ["All"] },
+    { name: "Canva", description: "Online graphic design to make engaging learning materials and classroom resources.", link: "https://www.canva.com/", type: "Graphic design / Resources", subjects: ["Arts", "Design & Technologies", "English", "All"] },
+    { name: "Padlet", description: "Collaborative space (discussion boards, timelines, walls). Can be anonymous.", link: "https://padlet.com/", type: "Collaboration space", subjects: ["All"] },
+    { name: "Classroom Screen", description: "Classroom display tools: timers, widgets, instructions, whiteboard-style tools.", link: "https://classroomscreen.com/", type: "Classroom display / Whiteboard tools", subjects: ["All"] },
+    { name: "ClickView", description: "Video repository for schools.", link: "https://www.clickview.net/secondary", type: "Videos / Media library", subjects: ["All"] },
+    { name: "Online Stopwatch", description: "Visual stopwatch and timers.", link: "https://www.online-stopwatch.com/", type: "Timer / Stopwatch", subjects: ["Mathematics", "HPE", "All"] },
+    { name: "ClassTools Random Name Picker", description: "Random selector plus other classroom tools.", link: "https://www.classtools.net/random-name-picker/", type: "Random selector / Classroom tools", subjects: ["All"] },
+    { name: "PhET Interactive Simulations", description: "Interactive simulations for teaching and learning.", link: "https://phet.colorado.edu/", type: "Interactive simulations", subjects: ["Science", "Mathematics"] },
+    { name: "My Computer Brain", description: "Free computer courses.", link: "https://mycomputerbrain.net/", type: "Online courses", subjects: ["Digital Technologies", "eLearning"] },
+    { name: "Low Earth Orbit Visualisation (LeoLabs)", description: "Live 3D visualisation of objects orbiting Earth.", link: "https://platform.leolabs.space/visualization", type: "3D visualisation", subjects: ["Science", "HASS"] },
+    { name: "Notable People Globe", description: "3D Earth view showing birthplaces of notable people.", link: "https://tjukanovt.github.io/notable-people", type: "3D visualisation", subjects: ["HASS", "English"] },
+    { name: "Neal.fun", description: "A collection of fun interactive apps to stimulate curiosity.", link: "https://neal.fun/", type: "Interactive curiosities", subjects: ["All"] },
+    { name: "Townscaper", description: "Relaxed town-building tool (great for design thinking and discussion).", link: "https://oskarstalberg.com/Townscaper/", type: "Game / Creative sandbox", subjects: ["HASS", "Design & Technologies", "Arts"] },
+    { name: "OpenGuessr (Geo guessing)", description: "Geolocation guessing game.", link: "https://openguessr.com/", type: "Game", subjects: ["HASS"] },
+    { name: "TypingClub (edclub)", description: "Typing game and lessons.", link: "https://www.edclub.com/sportal/program-3.game", type: "Typing", subjects: ["English", "Digital Technologies", "eLearning"] },
+    { name: "FocusWriter", description: "Distraction-reduced writing application (install).", link: "https://gottcode.org/focuswriter/", type: "Installable writing app", subjects: ["English", "Wellbeing"] },
+    { name: "Eyecandy (film effects)", description: "Reference site for film techniques and effects (learn the language of filmmaking).", link: "https://eyecannndy.com/", type: "Film reference", subjects: ["Film & TV", "Arts"] },
+    { name: "Workout.cool", description: "Create custom workouts and routines.", link: "https://www.workout.cool/en", type: "Workout builder", subjects: ["HPE"] },
+    { name: "ColorifyAI (colouring pages)", description: "Colouring-in page generator.", link: "https://colorifyai.art/?utm_source=chatgpt.com#coloring-page", type: "Image generator", subjects: ["Arts", "Design & Technologies", "All"] },
+    { name: "Email tracker (note)", description: "Track who is using your email (staff use). Add your preferred link or remove if not needed.", link: "", type: "Email / Staff utility", subjects: ["Staff"] },
+    { name: "Chronas Map", description: "Interactive historical map.", link: "https://www.chronas.org", type: "Interactive map", subjects: ["HASS"] },
+    { name: "Open Library", description: "Free books and borrowing library.", link: "https://openlibrary.org/", type: "Book library", subjects: ["English", "HASS"] },
+    { name: "Citywalki", description: "Video walking tours (useful for prompts, writing, geography, cultural studies).", link: "https://www.citywalki.com/", type: "Video walks", subjects: ["HASS", "English", "Languages"] },
+    { name: "ENTERTRAINED", description: "Learn to type while reading a book.", link: "https://entertrained.app/", type: "Typing / Reading", subjects: ["English", "Digital Technologies"] },
+    { name: "Mindmap (local file)", description: "Free mindmap tool made by Myles. Download and share. Great for visualising and planning.", link: "assets/Mindmap.html", type: "Mindmap", subjects: ["All"], local: true },
+    { name: "Adobe Express", description: "Online design tool for quick classroom graphics, videos, and pages.", link: "https://new.express.adobe.com/?guid=7d7da176-3cb4-4da3-8746-5fa36bf8b436&product=Creative+Cloud+Desktop&product-version=6.7.0.278", type: "Graphic design / Media", subjects: ["Arts", "English", "Design & Technologies", "All"] },
+    { name: "Writing organisers (local file)", description: "School organisers for student and teacher use. Assists students with writing.", link: "assets/WritingOrganisers.html", type: "Writing support", subjects: ["English"], local: true }
+  ];
+
+  /***********************
+   * Storage (custom tools)
+   ***********************/
+  const STORAGE_KEY = "teacherToolsCustom_v1";
+
+  function loadCustomTools(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter(t => t && typeof t.name === "string")
+        .map(t => ({
+          name: String(t.name || "").trim(),
+          description: String(t.description || "").trim(),
+          link: String(t.link || "").trim(),
+          type: String(t.type || "").trim() || "Other",
+          subjects: Array.isArray(t.subjects) ? t.subjects : (String(t.subjects || "").split(",").map(s => s.trim()).filter(Boolean)),
+          local: !!t.local
+        }));
+    } catch (e){
+      return [];
+    }
+  }
+
+  function saveCustomTools(customTools){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(customTools));
+  }
+
+  /***********************
+   * App state
+   ***********************/
+  let customTools = loadCustomTools();
+  let tools = [...baseTools, ...customTools];
+
+  /***********************
+   * DOM helpers
+   ***********************/
+  const $ = (id) => document.getElementById(id);
+
+  function normalise(str){
+    return (str || "").toString().toLowerCase().trim();
+  }
+
+  function uniqueSorted(arr){
+    return [...new Set(arr)].sort((a,b) => a.localeCompare(b));
+  }
+
+  function buildOption(selectEl, value){
+    const opt = document.createElement("option");
+    opt.value = value;
+    opt.textContent = value;
+    selectEl.appendChild(opt);
+  }
+
+  function isExternalHttp(link){
+    return /^https?:\/\//i.test(link || "");
+  }
+
+  function isFileLikeLink(link){
+    const l = (link || "").trim();
+    if (!l) return false;
+
+    // local relative paths
+    if (/^(assets\/|\.\/|..\/)/i.test(l)) return true;
+
+    // file protocol
+    if (/^file:\/\//i.test(l)) return true;
+
+    // Windows UNC path
+    if (/^\\\\/i.test(l)) return true;
+
+    // common “looks like a file” extensions
+    if (/\.(pdf|docx?|pptx?|xlsx?|csv|zip|png|jpe?g|webp|gif|mp4|mov|html?)$/i.test(l)) return true;
+
+    return false;
+  }
+
+  function safeHostname(link){
+    try{
+      return new URL(link).hostname;
+    } catch {
+      return "";
+    }
+  }
+
+  function initialsFromName(name){
+    const cleaned = (name || "").trim();
+    if (!cleaned) return "A";
+    const parts = cleaned.split(/\s+/).filter(Boolean);
+    const first = parts[0]?.[0] || "A";
+    const second = (parts.length > 1 ? parts[1]?.[0] : parts[0]?.[1]) || "";
+    return (first + second).toUpperCase();
+  }
+
+  /***********************
+   * Thumbnail logic:
+   * folder: tumb/
+   * file name: same as app name
+   * extensions tried: png, jpg, jpeg, webp, svg
+   ***********************/
+  const THUMB_FOLDER = "tumb";
+  const THUMB_EXTS = ["png", "jpg", "jpeg", "webp", "svg"];
+
+  function buildThumbCandidates(appName){
+    const enc = encodeURIComponent(appName);
+    return THUMB_EXTS.map(ext => `${THUMB_FOLDER}/${enc}.${ext}`);
+  }
+
+  function createThumbEl(appName){
+    const wrap = document.createElement("div");
+    wrap.className = "thumb";
+
+    const img = document.createElement("img");
+    const candidates = buildThumbCandidates(appName);
+    let idx = 0;
+
+    function setFallback(){
+      wrap.innerHTML = "";
+      const fb = document.createElement("div");
+      fb.className = "thumbFallback";
+      fb.textContent = initialsFromName(appName);
+      wrap.appendChild(fb);
+    }
+
+    img.alt = `${appName} thumbnail`;
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.src = candidates[idx];
+
+    img.onerror = () => {
+      idx++;
+      if (idx < candidates.length){
+        img.src = candidates[idx];
+      } else {
+        setFallback();
+      }
+    };
+
+    wrap.appendChild(img);
+    return wrap;
+  }
+
+  /***********************
+   * Download helper
+   * - For http(s): download works for same-origin files or if server allows CORS.
+   * - For local relative paths (assets/): usually works if served via a server, may be blocked for file:// pages.
+   * - For file:// and \\server paths: browsers generally block programmatic downloads for security.
+   *   We still provide the button; if blocked, user will get a clear message.
+   ***********************/
+  async function tryDownload(link, suggestedName){
+    const l = (link || "").trim();
+    if (!l){
+      alert("No file link to download.");
+      return;
+    }
+
+    // Hard block: most browsers won't allow fetching file:// or UNC paths
+    if (/^file:\/\//i.test(l) || /^\\\\/i.test(l)){
+      alert("Your browser will usually block downloading from file:// or \\\\network paths.\n\nTip: Open it at school, then use the app/page’s own download/export option, or copy the file into your assets folder and link it as assets/YourFile.ext.");
+      return;
+    }
+
+    // If it's an http(s) or relative path, attempt fetch + download blob
+    try{
+      const res = await fetch(l, { mode: "cors" });
+      if (!res.ok) throw new Error(`Download failed: ${res.status}`);
+
+      const blob = await res.blob();
+
+      // Determine filename
+      let filename = "";
+      const cd = res.headers.get("content-disposition") || "";
+      const match = cd.match(/filename\*?=(?:UTF-8''|")?([^\";]+)/i);
+      if (match && match[1]) filename = decodeURIComponent(match[1].replace(/"/g, "").trim());
+
+      if (!filename){
+        // last segment
+        const parts = l.split("/").filter(Boolean);
+        filename = parts.length ? parts[parts.length - 1] : (suggestedName || "download");
+      }
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (err){
+      alert(
+        "Could not download this file automatically.\n\nCommon reasons:\n" +
+        "• The file is only accessible on the school network\n" +
+        "• The server blocks downloads (CORS)\n" +
+        "• The page is opened as file:// and the browser restricts fetch\n\n" +
+        "Try opening the file at school and saving a copy, then link that copy from assets/."
+      );
+    }
+  }
+
+  /***********************
+   * Filters
+   ***********************/
+  function initFilters(){
+    const typeFilter = $("typeFilter");
+    const subjectFilter = $("subjectFilter");
+
+    typeFilter.innerHTML = "";
+    subjectFilter.innerHTML = "";
+
+    buildOption(typeFilter, "All types");
+    buildOption(subjectFilter, "All subjects");
+
+    const types = uniqueSorted(tools.map(t => t.type).filter(Boolean));
+    const subjects = uniqueSorted(tools.flatMap(t => (t.subjects || [])).filter(Boolean));
+
+    types.forEach(t => buildOption(typeFilter, t));
+    subjects.forEach(s => buildOption(subjectFilter, s));
+  }
+
+  /***********************
+   * Render
+   ***********************/
+  function render(){
+    const q = normalise($("q").value);
+    const typePick = $("typeFilter").value;
+    const subjectPick = $("subjectFilter").value;
+
+    const filtered = tools.filter(t => {
+      const matchesQ =
+        !q ||
+        normalise(t.name).includes(q) ||
+        normalise(t.description).includes(q) ||
+        normalise(t.type).includes(q) ||
+        (t.subjects || []).some(s => normalise(s).includes(q));
+
+      const matchesType = (typePick === "All types") || (t.type === typePick);
+      const matchesSubject = (subjectPick === "All subjects") || ((t.subjects || []).includes(subjectPick));
+
+      return matchesQ && matchesType && matchesSubject;
+    });
+
+    $("countPill").textContent = `${tools.length} tools`;
+    $("resultMeta").textContent = `Showing ${filtered.length} of ${tools.length}`;
+
+    const grid = $("grid");
+    grid.innerHTML = "";
+
+    $("empty").style.display = filtered.length ? "none" : "block";
+
+    filtered.forEach(t => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const top = document.createElement("div");
+      top.className = "cardTop";
+
+      // Thumbnail (from tumb/)
+      const thumb = createThumbEl(t.name);
+
+      const info = document.createElement("div");
+      const name = document.createElement("p");
+      name.className = "name";
+      name.textContent = t.name;
+
+      const desc = document.createElement("p");
+      desc.className = "desc";
+      desc.textContent = t.description || "";
+
+      info.appendChild(name);
+      info.appendChild(desc);
+
+      top.appendChild(thumb);
+      top.appendChild(info);
+
+      const chips = document.createElement("div");
+      chips.className = "chips";
+
+      const typeChip = document.createElement("span");
+      typeChip.className = "chip gold";
+      typeChip.textContent = t.type || "Other";
+      chips.appendChild(typeChip);
+
+      (t.subjects || []).forEach(s => {
+        const c = document.createElement("span");
+        c.className = "chip";
+        c.textContent = s;
+        chips.appendChild(c);
+      });
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      const link = (t.link || "").trim();
+
+      if (link){
+        const open = document.createElement("a");
+        open.className = "linkBtn";
+        open.href = link;
+
+        if (isExternalHttp(link)){
+          open.target = "_blank";
+          open.rel = "noopener noreferrer";
+          open.textContent = "Open link";
+        } else {
+          open.textContent = "Open file";
+        }
+
+        actions.appendChild(open);
+
+        // If it looks like a file link, show download button too
+        if (isFileLikeLink(link)){
+          const dl = document.createElement("button");
+          dl.className = "downloadBtn";
+          dl.type = "button";
+          dl.textContent = "Download file";
+          dl.addEventListener("click", () => tryDownload(link, t.name));
+          actions.appendChild(dl);
+        }
+
+        const small = document.createElement("span");
+        small.className = "small";
+        small.textContent = isExternalHttp(link) ? safeHostname(link) : link;
+        actions.appendChild(small);
+      } else {
+        const small = document.createElement("span");
+        small.className = "small";
+        small.textContent = "No link added yet.";
+        actions.appendChild(small);
+      }
+
+      card.appendChild(top);
+      card.appendChild(chips);
+      card.appendChild(actions);
+      grid.appendChild(card);
+    });
+  }
+
+  /***********************
+   * Modal (Add New)
+   ***********************/
+  function openModal(){
+    $("modalOverlay").style.display = "flex";
+    $("modalOverlay").setAttribute("aria-hidden", "false");
+    $("newName").focus();
+  }
+
+  function closeModal(){
+    $("modalOverlay").style.display = "none";
+    $("modalOverlay").setAttribute("aria-hidden", "true");
+    clearModalFields();
+  }
+
+  function clearModalFields(){
+    $("newName").value = "";
+    $("newType").value = "";
+    $("newDesc").value = "";
+    $("newLink").value = "";
+    $("newSubjects").value = "";
+  }
+
+  function parseSubjects(str){
+    const arr = String(str || "")
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+    return arr.length ? arr : ["All"];
+  }
+
+  function addNewToolFromModal(){
+    const name = String($("newName").value || "").trim();
+    const type = String($("newType").value || "").trim() || "Other";
+    const description = String($("newDesc").value || "").trim();
+    const link = String($("newLink").value || "").trim();
+    const subjects = parseSubjects($("newSubjects").value);
+
+    if (!name){
+      alert("Please enter an app / website name.");
+      $("newName").focus();
+      return;
+    }
+
+    const tool = {
+      name,
+      type,
+      description,
+      link,
+      subjects,
+      local: !isExternalHttp(link) && !!link
+    };
+
+    customTools.push(tool);
+    saveCustomTools(customTools);
+
+    tools = [...baseTools, ...customTools];
+    initFilters();
+    render();
+    closeModal();
+  }
+
+  /***********************
+   * Init + events
+   ***********************/
+  function init(){
+    initFilters();
+    render();
+
+    $("q").addEventListener("input", render);
+    $("typeFilter").addEventListener("change", render);
+    $("subjectFilter").addEventListener("change", render);
+
+    $("clearBtn").addEventListener("click", () => {
+      $("q").value = "";
+      $("typeFilter").value = "All types";
+      $("subjectFilter").value = "All subjects";
+      render();
+      $("q").focus();
+    });
+
+    $("addNewBtn").addEventListener("click", openModal);
+    $("closeModalBtn").addEventListener("click", closeModal);
+    $("cancelBtn").addEventListener("click", closeModal);
+    $("saveBtn").addEventListener("click", addNewToolFromModal);
+
+    $("modalOverlay").addEventListener("click", (e) => {
+      if (e.target === $("modalOverlay")) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && $("modalOverlay").style.display === "flex"){
+        closeModal();
+      }
+    });
+  }
+
+  init();
+</script>
+</body>
+</html>
