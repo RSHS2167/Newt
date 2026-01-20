@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <title>Opening Network Resource…</title>
+
+  <!-- Attempt automatic redirect -->
+  <meta http-equiv="refresh" content="2; url=file:\\EQGBN2167002\Data\Curriculum\Common\elearn\elearn_apps.html">
+
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card {
+      background: #fff;
+      padding: 24px 28px;
+      border-radius: 8px;
+      max-width: 520px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    code {
+      display: block;
+      background: #f0f2f5;
+      padding: 10px;
+      margin: 12px 0;
+      border-radius: 4px;
+      font-size: 13px;
+      word-break: break-all;
+    }
+    button {
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function openNetworkPath() {
+      window.location.href = "file://EQGBN/Share/Folder/File.docx";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Opening network file…</h1>
+    <p>
+      Your browser may block automatic access to network files.
+      If nothing opens, use one of the options below.
+    </p>
+
+    <button onclick="openNetworkPath()">Try opening the file</button>
+
+    <p>Or copy and paste this path into File Explorer:</p>
+    <code>\\EQGBN\Share\Folder\File.docx</code>
+
+    <p style="margin-top: 12px;">
+      This link works when connected to the school network or VPN.
+    </p>
+  </div>
+</body>
+</html>
